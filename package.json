@@ -10,7 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "barcode": "^0.1.0",
+    "barcode-builder-svg": "^2.0.4",
+    "firebase": "^10.7.1",
     "react": "^18.2.0",
+    "react-barcode": "^1.4.6",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.2",
     "react-icons": "^4.12.0",

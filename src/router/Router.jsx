@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         element: <Orders />,
       },
       {
-        path: "/barcode",
+        path: "/barcode/:productId",
         element: <Barcode/>,
       }
       
