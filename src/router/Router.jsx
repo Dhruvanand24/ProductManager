@@ -4,6 +4,8 @@ import Main from "../layout/Main";
 import Logout from "../pages/Logout";
 import TotalData from "../pages/TotalData";
 import Orders from "../pages/Orders";
+import Barcode from "../pages/Barcode";
+
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,12 @@ const router = createBrowserRouter([
       {
         path: "/orders",
         element: <Orders />,
+      },
+      {
+        path: "/barcode",
+        element: <Barcode/>,
       }
+      
       
     ],
   },

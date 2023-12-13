@@ -1,8 +1,10 @@
 import React from 'react'
 import { MdOutlineQrCodeScanner } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import Modal from './Modal';
 
 const Navbar = () => {
+    
   return (
     <header className='shadow-md fixed top-0 left-0 right-0 z-50'>
       <div className="navbar bg-base-100">
@@ -26,11 +28,12 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-    <div tabIndex={0} role="button" className="btn mx-8 btn-lg bg-blue-900 text-gray-500">
+
         <div className="indicator">
-        < IoIosAddCircleOutline /> Add Product
+        <button className="btn bg-blue-900 text-white hover:text-black" onClick={()=>document.getElementById('my_modal_5').showModal()}>Add Product</button>
+       <Modal />
         </div>
-      </div>
+      
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
