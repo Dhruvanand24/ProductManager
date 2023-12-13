@@ -1,20 +1,22 @@
 import React from 'react'
 import { MdOutlineQrCodeScanner } from "react-icons/md";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 const Navbar = () => {
   return (
-    <div>
+    <header className='shadow-md fixed top-0 left-0 right-0 z-50'>
       <div className="navbar bg-base-100">
   <div className="flex-1">
     <a className="btn btn-ghost text-xl">Made 2 Automate</a>
   </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle btn-lg">
         <div className="indicator">
         <MdOutlineQrCodeScanner />
         </div>
       </div>
+      
       <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
         <div className="card-body">
           
@@ -24,6 +26,11 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+    <div tabIndex={0} role="button" className="btn mx-8 btn-lg bg-blue-900 text-gray-500">
+        <div className="indicator">
+        < IoIosAddCircleOutline /> Add Product
+        </div>
+      </div>
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
@@ -43,7 +50,7 @@ const Navbar = () => {
     </div>
   </div>
 </div>
-    </div>
+    </header>
   )
 }
 

@@ -1,11 +1,12 @@
 import React from 'react'
 import Product from './Product'
 
-const TotalLeads = () => {
+
+const DeadStocks = () => {
   return (
     <div>
       <div className='flex justify-between w-screen p-10'>
-        <h1 className='text-2xl'>Total Leads</h1>
+        <h1 className='text-2xl'>Dead Stocks</h1>
         <button className="btn btn-primary">View All</button>
       </div>
       <div className='px-10 ml-5'>
@@ -17,4 +18,4 @@ const TotalLeads = () => {
   )
 }
 
-export default TotalLeads
+export default DeadStocks

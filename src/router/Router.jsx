@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 
 import Logout from "../pages/Logout";
 import TotalData from "../pages/TotalData";
+import Orders from "../pages/Orders";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <TotalData />,
+      },
+      {
+        path: "/orders",
+        element: <Orders />,
       }
       
     ],
