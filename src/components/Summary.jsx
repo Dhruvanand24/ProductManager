@@ -87,7 +87,7 @@ const Summary = (props) => {
   </div>
   <div className="card-actions justify-center mt-5">
   {/* <Barcode value={`https://localhost:5173/barcode/${props.data}`}  width={1}/> */}
-  <div className="barcode-container"><Barcode value="https://www.mutualfundsahihai.com"  width={1} height={50} ref={barcodeRef}/> </div>
+  <div className="barcode-container"><Barcode value={props.data}  width={1} height={50} ref={barcodeRef}/> </div>
   <button className="btn btn-primary mx-5" onClick={handlePrint}>Print Bar Code</button>
     <button className="btn btn-primary mx-5" onClick={handleSave}>Save to device</button>
 
