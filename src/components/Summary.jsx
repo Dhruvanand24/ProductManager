@@ -3,14 +3,60 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase.config';
 import React, { useEffect, useRef, useState } from 'react';
 import Barcode from 'react-barcode';
+import axios from 'axios';
 
 const Summary = (props) => {
   const barcodeRef = useRef(null);
  
   const [productData, setProductData] = useState(null);
-  const handleAdd = () => {
-       
-  }
+  const convertToShopifyFormat = () => {
+    const convertedData = {
+      title: productData.Name,
+      body_html: `<p>${productData.Description}</p>`,
+      vendor: productData.manufacturer,
+      product_type: productData.Category,
+      variants: [
+        {
+          option1: "Default Title",
+          price: productData.Price.toFixed(2), // Format price to two decimal places
+          sku: "123456789",
+          inventory_management: "shopify",
+          inventory_quantity: productData.Quantity,
+        }
+      ],
+      images: [
+        {
+          src: productData.ImageUrl,
+        }
+      ]
+    };
+
+    return convertedData;
+  };
+const handleping = async() => {
+  const response =  await axios.get('http://localhost:3000/ping');
+  alert(response.data);
+}
+
+  const handleAddProduct = async () => {
+    const formattedData = convertToShopifyFormat();
+
+    try {
+      const response = await axios.post('http://localhost:3000/add-product', {
+        product: formattedData,
+      }, { withCredentials: true });
+
+      // Handle the response as needed
+      
+      console.log(response.data);
+    } catch (error) {
+      // Handle error
+      console.error(error.response.data);
+      
+    }
+  };
+
+
   const handlePrint = () =>{
        window.print();
   };
@@ -98,7 +144,7 @@ const Summary = (props) => {
         <div className='flex justify-center items-center bg-white w-1/2 p-3 rounded-2xl shadow-md'>
           <div className='w-10 mx-5'><img  src="https://cdn.icon-icons.com/icons2/2428/PNG/512/shopify_black_logo_icon_147085.png" alt="store logo" /></div>
           <h1 className='mx-5'>Add Product to Shopify</h1>
-          <button className="btn btn-outline btn-success" onClick={handleAdd}>Add</button>
+          <button className="btn btn-outline btn-success" onClick={handleAddProduct}>Add</button>
         </div>
         </div>
   </div>
