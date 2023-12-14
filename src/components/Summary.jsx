@@ -8,7 +8,9 @@ const Summary = (props) => {
   const barcodeRef = useRef(null);
  
   const [productData, setProductData] = useState(null);
-  
+  const handleAdd = () => {
+       
+  }
   const handlePrint = () =>{
        window.print();
   };
@@ -92,6 +94,13 @@ const Summary = (props) => {
   </div>
 </div>
 </div>
+<div className='justify-center items-center m-4'>
+        <div className='flex justify-center items-center bg-white w-1/2 p-3 rounded-2xl shadow-md'>
+          <div className='w-10 mx-5'><img  src="https://cdn.icon-icons.com/icons2/2428/PNG/512/shopify_black_logo_icon_147085.png" alt="store logo" /></div>
+          <h1 className='mx-5'>Add Product to Shopify</h1>
+          <button className="btn btn-outline btn-success" onClick={handleAdd}>Add</button>
+        </div>
+        </div>
   </div>
   )
 }

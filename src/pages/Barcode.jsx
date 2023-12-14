@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom';
 const Barcode = () => {
   const { productId } = useParams();
 
+  
+
   return (
     <div className="text-center p-8">
       <div>
