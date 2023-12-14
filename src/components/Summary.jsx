@@ -49,6 +49,7 @@ const handleping = async() => {
       // Handle the response as needed
       
       console.log(response.data);
+      alert("Listed to Shopify, click on qr on the navbar to visit");
     } catch (error) {
       // Handle error
       console.error(error.response.data);

@@ -1,13 +1,17 @@
 import React from 'react'
 
-const Product = () => {
+const Product = (props) => {
   return (
     <div className='flex flex-col m-5 border-l border-gray-500 pl-3'>
-        <h1 className='font-bold'>IR Sensor</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae eos harum, tempora ipsum provident nobis possimus facere voluptatem dolorum pariatur.</p>
+        <h1 className='font-bold'>{props.title}</h1>
+        <p>{props.description}</p>
         <div className='flex'>
             <h3 className='mr-3'>Quntity: </h3>
-            <p>30</p>
+            <p>1</p>
+        </div>
+        <div className='flex'>
+            <h3 className='mr-3'>Price: </h3>
+            <p>{props.price}</p>
         </div>
       
     </div>
