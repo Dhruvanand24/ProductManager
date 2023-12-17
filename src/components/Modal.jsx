@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {app ,db} from '../firebase/firebase.config';
-import { collection, addDoc } from "firebase/firestore";  
+import { collection, addDoc, setDoc, doc } from "firebase/firestore";  
 
 
 const Modal = () => {
@@ -20,7 +20,7 @@ const Modal = () => {
 
     const onSubmit = async (data) => {
       try {
-        if (!data.name || !data.description || !data.price || !data.quantity || !data.imageurl || !data.manufacturer || !data.category) {
+        if (!data.name || !data.description || !data.price || !data.quantity || !data.imageurl || !data.manufacturer || !data.category || !data.productid) {
           setErrorMessage('All fields are required');
           return;
         }
@@ -32,22 +32,23 @@ const Modal = () => {
           Quantity: Number(data.quantity),
           Category: data.category,
           ImageUrl: data.imageurl,
+          productId: data.productid,
         };
   
         // Reference to the "Products" collection (you may change this to your desired collection name)
-        const productsCollection = collection(db, "Products");
+        
   
         // Add the product data to Firestore
-        const docRef = await addDoc(productsCollection, productData);
+        const docRef = await setDoc(doc(db, "Products",data.productid ),productData );
   
         // Retrieve the document ID
-        const productId = docRef.id;
+      
   
         // Close the modal
         document.getElementById('my_modal_5').close();
   
         // Navigate to /barcode with the document ID as a parameter
-        navigate(`/barcode/${productId}`, { state: { from: location } });
+        navigate(`/barcode/${data.productid}`, { state: { from: location } });
       } catch (error) {
         console.error('Error adding product to Firestore:', error);
         setErrorMessage('Error adding product. Please try again.');
@@ -84,6 +85,18 @@ const Modal = () => {
               {...register("description", { required: true })}
             />
             {errors.name && <span className="text-red-600 text-xs italic">Description is required</span>}
+            
+          </div>
+           {/* productId */}
+           <div className="form-control mb-3">
+            
+            <input
+              type="text"
+              placeholder="Product Id"
+              className="input input-bordered"
+              {...register("productid", { required: true })}
+            />
+            {errors.name && <span className="text-red-600 text-xs italic">Product id is required</span>}
             
           </div>
            {/* Price */}

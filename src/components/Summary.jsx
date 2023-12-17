@@ -42,9 +42,7 @@ const handleping = async() => {
     const formattedData = convertToShopifyFormat();
 
     try {
-      const response = await axios.post('http://localhost:3000/add-product', {
-        product: formattedData,
-      }, { withCredentials: true });
+      const response = await axios.post('http://localhost:3000/add-product', formattedData, { withCredentials: true });
 
       // Handle the response as needed
       
@@ -52,7 +50,7 @@ const handleping = async() => {
       alert("Listed to Shopify, click on qr on the navbar to visit");
     } catch (error) {
       // Handle error
-      console.error(error.response.data);
+      console.error(error.response);
       
     }
   };
@@ -117,9 +115,9 @@ const handleping = async() => {
   return (
     <div>
      <h1 className='font-bold'>Successfully Added Item</h1>   
-    <div className="card card-side bg-base-100 shadow-xl m-4">
+    <div className="card card-side bg-base-100 shadow-xl m-4 overflow-hidden">
     
-<figure><img src={productData.ImageUrl} alt="Product" style={{ maxWidth: '100%', maxHeight: '300px', width: 'auto', height: 'auto' }}/></figure>
+<img src={productData.ImageUrl} alt="Product" style={{ maxWidth: '100%', maxHeight: '300px', width: 'auto', height: 'auto' }}/>
 <div className="card-body">
   <h2 className="card-title">{productData.Name}</h2>
   <p>{productData.Description}</p>
@@ -141,13 +139,17 @@ const handleping = async() => {
   </div>
 </div>
 </div>
-<div className='justify-center items-center m-4'>
+<h1 className='font-bold mb-8'>E commerce Listing</h1>
+<div className='flex justify-center'>
+  
         <div className='flex justify-center items-center bg-white w-1/2 p-3 rounded-2xl shadow-md'>
           <div className='w-10 mx-5'><img  src="https://cdn.icon-icons.com/icons2/2428/PNG/512/shopify_black_logo_icon_147085.png" alt="store logo" /></div>
-          <h1 className='mx-5'>Add Product to Shopify</h1>
+          <h1 className='mx-5 font-bold'>Add Product to Shopify</h1>
           <button className="btn btn-outline btn-success" onClick={handleAddProduct}>Add</button>
         </div>
+        
         </div>
+        
   </div>
   )
 }

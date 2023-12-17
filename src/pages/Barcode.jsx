@@ -8,7 +8,7 @@ const Barcode = () => {
   
 
   return (
-    <div className="text-center p-8">
+    <div className="text-center p-8 bg-slate-300">
       <div>
         <h1 className='font-bold text-2xl'>Barcode</h1>
       </div>

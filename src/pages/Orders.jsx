@@ -3,7 +3,7 @@ import ItemSummary from '../components/ItemSummary';
 
 const Orders = () => {
   return (
-    <div className="text-center p-8">
+    <div className="text-center p-8 bg-slate-300">
       <div>
         <h1 className='font-bold text-2xl'>Orders</h1>
       </div>
