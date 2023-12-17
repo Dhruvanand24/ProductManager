@@ -39,6 +39,7 @@ const handleping = async() => {
 }
 
   const handleAddProduct = async () => {
+    alert("request sent");
     const formattedData = convertToShopifyFormat();
 
     try {

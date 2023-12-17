@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {app ,db} from '../firebase/firebase.config';
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";  
+import Loader from './Loader';
 
 
 const Modal = () => {
     const [errorMessage, setErrorMessage] = useState("");
+    const [loading, setLoading] = useState(false);
     const {
         register,
         handleSubmit,
@@ -19,9 +21,11 @@ const Modal = () => {
    
 
     const onSubmit = async (data) => {
+      setLoading(true);
       try {
         if (!data.name || !data.description || !data.price || !data.quantity || !data.imageurl || !data.manufacturer || !data.category || !data.productid) {
           setErrorMessage('All fields are required');
+          setLoading(false);
           return;
         }
         const productData = {
@@ -46,6 +50,7 @@ const Modal = () => {
   
         // Close the modal
         document.getElementById('my_modal_5').close();
+        setLoading(false);
   
         // Navigate to /barcode with the document ID as a parameter
         navigate(`/barcode/${data.productid}`, { state: { from: location } });
@@ -61,6 +66,7 @@ const Modal = () => {
     <div className="modal-box">
       <div className="modal-action flex flex-col justify-center mt-0">
         <form onSubmit={handleSubmit(onSubmit)} className="card-body" method="dialog">
+          
           <h3 className="font-bold text-lg">Add Product</h3>
 
           {/* name */}
@@ -167,6 +173,7 @@ const Modal = () => {
 
           {/* Add button btn */}
           <div className="form-control mt-4">
+            
             <input
               type="submit"
               value="AddProduct"
