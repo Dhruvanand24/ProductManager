@@ -41,7 +41,7 @@ const handleping = async() => {
 }
 
   const handleAddProduct = async () => {
-    alert("request sent");
+    
     setLoading(true);
     const formattedData = convertToShopifyFormat();
 
@@ -51,8 +51,9 @@ const handleping = async() => {
       // Handle the response as needed
       
       console.log(response.data);
-      alert("Listed to Shopify, click on qr on the navbar to visit");
       setLoading(false);
+      alert("Listed to Shopify, click on qr on the navbar to visit");
+      
     } catch (error) {
       // Handle error
       console.error(error.response);

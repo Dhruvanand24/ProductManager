@@ -2,8 +2,8 @@ import React from 'react'
 
 const Loader = () => {
   return (
-    <div>
-      <span className="loading loading-spinner loading-md"></span>
+    <div className='ml-4'>
+      <span className="loading loading-spinner text-success"></span>
     </div>
   )
 }
