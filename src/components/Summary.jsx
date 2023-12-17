@@ -4,9 +4,11 @@ import { db } from '../firebase/firebase.config';
 import React, { useEffect, useRef, useState } from 'react';
 import Barcode from 'react-barcode';
 import axios from 'axios';
+import Loader from './Loader';
 
 const Summary = (props) => {
   const barcodeRef = useRef(null);
+  const [loading, setLoading] = useState(false);
  
   const [productData, setProductData] = useState(null);
   const convertToShopifyFormat = () => {
@@ -40,6 +42,7 @@ const handleping = async() => {
 
   const handleAddProduct = async () => {
     alert("request sent");
+    setLoading(true);
     const formattedData = convertToShopifyFormat();
 
     try {
@@ -49,6 +52,7 @@ const handleping = async() => {
       
       console.log(response.data);
       alert("Listed to Shopify, click on qr on the navbar to visit");
+      setLoading(false);
     } catch (error) {
       // Handle error
       console.error(error.response);
@@ -147,6 +151,7 @@ const handleping = async() => {
           <div className='w-10 mx-5'><img  src="https://cdn.icon-icons.com/icons2/2428/PNG/512/shopify_black_logo_icon_147085.png" alt="store logo" /></div>
           <h1 className='mx-5 font-bold'>Add Product to Shopify</h1>
           <button className="btn btn-outline btn-success" onClick={handleAddProduct}>Add</button>
+         {loading? <Loader/>:<></>}
         </div>
         
         </div>
