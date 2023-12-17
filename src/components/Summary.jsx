@@ -56,6 +56,7 @@ const handleping = async() => {
       
     } catch (error) {
       // Handle error
+      alert("failed, try again");
       console.error(error.response);
       
     }
