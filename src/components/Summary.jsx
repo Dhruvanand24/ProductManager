@@ -42,7 +42,7 @@ const handleping = async() => {
     const formattedData = convertToShopifyFormat();
 
     try {
-      const response = await axios.post('http://localhost:3000/add-product', formattedData, { withCredentials: true });
+      const response = await axios.post('https://product-server-azure.vercel.app/add-product', formattedData, { withCredentials: true });
 
       // Handle the response as needed
       
