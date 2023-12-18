@@ -5,8 +5,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import Barcode from 'react-barcode';
 import axios from 'axios';
 import Loader from './Loader';
-import Toast from './Toast';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const Summary = (props) => {
   const showPending = () => {
@@ -170,7 +172,18 @@ const handleping = async() => {
         </div>
         
         </div>
-        <Toast />
+        <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
   </div>
   )
 }
