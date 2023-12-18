@@ -5,8 +5,20 @@ import React, { useEffect, useRef, useState } from 'react';
 import Barcode from 'react-barcode';
 import axios from 'axios';
 import Loader from './Loader';
+import Toast from './Toast';
+import { toast } from 'react-toastify';
 
 const Summary = (props) => {
+  const showPending = () => {
+    const notify = () => toast.info("Sent Request to upload");
+  }
+  const showSuccess = () => {
+    const notify = () => toast.success("Added Successfully, checkout store through qr code on navbar")
+  }
+  const showError = () => {
+    const notify = () => toast.error("Some Error Occured!!, Please try again.")
+  }
+  
   const barcodeRef = useRef(null);
   const [loading, setLoading] = useState(false);
  
@@ -42,6 +54,7 @@ const handleping = async() => {
 
   const handleAddProduct = async () => {
     
+    showPending();
     setLoading(true);
     const formattedData = convertToShopifyFormat();
 
@@ -52,11 +65,11 @@ const handleping = async() => {
       
       console.log(response.data);
       setLoading(false);
-      alert("Listed to Shopify, click on qr on the navbar to visit");
+      showSuccess();
       
     } catch (error) {
       // Handle error
-      alert("failed, try again");
+      showError();
       console.error(error.response);
       
     }
@@ -157,7 +170,7 @@ const handleping = async() => {
         </div>
         
         </div>
-        
+        <Toast />
   </div>
   )
 }
