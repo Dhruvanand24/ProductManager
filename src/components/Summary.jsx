@@ -143,7 +143,7 @@ const handleping = async() => {
     <div>
      
      <h1 className='font-bold'>Successfully Added Item</h1>   
-    <div className="card card-side bg-base-100 shadow-xl m-4 overflow-hidden">
+    <div className="card card-side bg-base-100 shadow-xl m-4 overflow-hidden dark:bg-white">
     
 <img src={productData.ImageUrl} alt="Product" style={{ maxWidth: '100%', maxHeight: '300px', width: 'auto', height: 'auto' }}/>
 <div className="card-body">

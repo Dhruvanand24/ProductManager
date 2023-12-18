@@ -9,7 +9,7 @@ const TotalOrders = () => {
         navigate('/orders', {state:{from: location}})
     }
   return (
-    <div className='m-4 bg-white rounded-xl'>
+    <div className='m-4 bg-white rounded-xl dark: text-black'>
       <div className='flex justify-between p-10'>
         <div>
         <h1 className='text-2xl font-bold'>Total Orders</h1>

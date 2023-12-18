@@ -3,7 +3,7 @@ import React from 'react'
 const ItemSummary = (props) => {
   return (
     <div className='p-3'>
-      <div className="card card-side bg-base-100 shadow-xl m-4 p-2">
+      <div className="card card-side bg-base-100 shadow-xl m-4 p-2 dark:bg-white">
   <img className='aspect-video rounded-xl' src={props.imageurl} alt="Movie"/>
   <div className="card-body">
     <h2 className='font-bold text-xl'>{props.title}</h2>
