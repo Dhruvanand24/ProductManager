@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="card-body">
           
           <div className="card-actions">
-            <button className="btn bg-blue-900 btn-block" onClick={openShopifyWebsite}>Open Shopify Store</button>
+            <button className="btn bg-blue-900 btn-block text-white hover:text-black" onClick={openShopifyWebsite}>Open Shopify Store</button>
             <p className='font-bold'>Enter Password: 123456</p>
           </div>
         </div>
