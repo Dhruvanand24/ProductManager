@@ -124,6 +124,18 @@ const handleping = async() => {
   }
   return (
     <div>
+      <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
      <h1 className='font-bold'>Successfully Added Item</h1>   
     <div className="card card-side bg-base-100 shadow-xl m-4 overflow-hidden">
     
@@ -160,18 +172,7 @@ const handleping = async() => {
         </div>
         
         </div>
-        <ToastContainer
-position="top-center"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-/>
+        
   </div>
   )
 }
