@@ -12,7 +12,7 @@ const Product = (props) => {
         </div>
         <div className='flex'>
             <h3 className='mr-3'>Price: </h3>
-            <p>{props.price}</p>
+            <p className='text-[#483ae6] font-bold'>{props.price}</p>
         </div>
       
     </div>
