@@ -5,20 +5,36 @@ import React, { useEffect, useRef, useState } from 'react';
 import Barcode from 'react-barcode';
 import axios from 'axios';
 import Loader from './Loader';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import Swal from 'sweetalert2'
 
 
 const Summary = (props) => {
   const showPending = () => {
-    const notify = () => toast.info("Sent Request to upload");
+    Swal.fire({
+      position: "top-end",
+      icon: "info",
+      title: "Sending product to shopify",
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
   const showSuccess = () => {
-    const notify = () => toast.success("Added Successfully, checkout store through qr code on navbar")
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Product Added Successfully",
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
   const showError = () => {
-    const notify = () => toast.error("Some Error Occured!!, Please try again.")
+    Swal.fire({
+      position: "top-end",
+      icon: "error",
+      title: "Some error occured!! please try again.",
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
   
   const barcodeRef = useRef(null);
@@ -72,6 +88,7 @@ const handleping = async() => {
     } catch (error) {
       // Handle error
       showError();
+      setLoading(false);
       console.error(error.response);
       
     }
@@ -124,18 +141,7 @@ const handleping = async() => {
   }
   return (
     <div>
-      <ToastContainer
-position="top-center"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-/>
+     
      <h1 className='font-bold'>Successfully Added Item</h1>   
     <div className="card card-side bg-base-100 shadow-xl m-4 overflow-hidden">
     
