@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {app ,db} from '../firebase/firebase.config';
 import { collection, addDoc, setDoc, doc } from "firebase/firestore";  
-import Loader from './Loader';
+
 
 
 const Modal = () => {
